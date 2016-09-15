@@ -1,0 +1,46 @@
+<h1>Classifieds</h1>
+
+#if ($jobsArray == [])
+  <p>There are no current openings</p>
+#else
+
+  #foreach ($job in $jobsArray)
+  <a href="/"><h4>$job.getTitle()</h4>
+  <ul>
+    <li>$job.getField()</li>
+    <li>$job.getDescription()</li>
+    <li>$job.getWage()</li>
+    <li>$job.getHours()</li>
+    <li>$job.getCompany()</li>
+    <li>$job.getLocation()</li>
+    <li><small>Date posted: $job.getDate()</small></li>
+  #end
+  </ul>
+#end
+
+<hr>
+<h3>Add new job</h3>
+<form class="form-control" action="/" method="post">
+  <label for="title">Job Title: </label>
+  <input type="text" name="title" id="title">
+<br>
+  <label for="industry">Job Field: </label>
+  <input type="text" name="industry" id="industry">
+<br>
+  <label for="description">Job Description: </label>
+  <input type="text" name="description" id="description">
+<br>
+  <label for="wage">Wage: </label>
+  <input type="text" name="wage" id="wage">
+<br>
+  <label for="hours">Hours: </label>
+  <input type="text" name="hours" id="hours">
+<br>
+  <label for="company">Company: </label>
+  <input type="text" name="company" id="company">
+<br>
+  <label for="location">Job Location: </label>
+  <input type="text" name="location" id="location">
+<br>
+<button type="submit" name="button">Add Job</button>
+</form>
